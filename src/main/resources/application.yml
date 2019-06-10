@@ -1,0 +1,32 @@
+server:
+  port: 8080
+#  ssl:
+#    key-store: classpath:config/baotian.club.jks
+#    key-store-password: BAOtiandi789
+#    key-store-type: jks
+#    key-alias: baotianclub
+spring:
+  thymeleaf:
+    cache: false
+  profiles:
+    active: dev
+#  jpa:
+#    show-sql: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  security:
+    enabled: false
+  #context-path: "actuator" ###配置前缀
+#  mybatis:
+#    config-location: classpath:mybatis/mybatis-config.xml
+#    mapper-locations: classpath:mybatis/mapper/*.xml
+#Mybatis配置
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.jxy.study.entity
+  configuration:
+    map-underscore-to-camel-case: true #开启驼峰命名
+    cache-enabled: true #开启二级缓存
