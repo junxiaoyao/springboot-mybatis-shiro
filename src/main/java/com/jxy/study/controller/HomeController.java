@@ -1,6 +1,6 @@
 package com.jxy.study.controller;
 
-import com.jxy.study.dao.RoleDao;
+import com.jxy.study.config.MyFilterMap;
 import com.jxy.study.entity.Role;
 import com.jxy.study.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +20,9 @@ public class HomeController {
 
   @Autowired
   private RoleService roleService;
+
+  @Autowired
+  private MyFilterMap filterMap;
 
   private int size = 50;
 

@@ -30,3 +30,7 @@ mybatis:
   configuration:
     map-underscore-to-camel-case: true #开启驼峰命名
     cache-enabled: true #开启二级缓存
+security:
+  shiro:
+    urlFilterMap:
+      /test/**: anno
