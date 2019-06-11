@@ -40,7 +40,7 @@ security:
     urlFilterMap:
       /getRoleById: authc
       /mainPage: authc
-      /rest/*: perms
+      /rest/*: authc,perms
 #      /test/**: anno
 
 project:

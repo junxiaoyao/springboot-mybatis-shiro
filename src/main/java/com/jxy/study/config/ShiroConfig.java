@@ -30,7 +30,7 @@ public class ShiroConfig {
 //    map.put("/getRoleById", "anno");
     //登出
     map.put("/logout", "logout");
-    map.put("/rest/getTime","perms");
+    //map.put("/rest/getTime","perms");
     factoryBean.setFilterChainDefinitionMap(map);
     factoryBean.setLoginUrl("/login");
     return factoryBean;

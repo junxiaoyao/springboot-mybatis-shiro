@@ -46,15 +46,16 @@ public class UserRealm extends AuthorizingRealm {
   @Override
   protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
     System.out.println("执行授权逻辑");
+    SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
     String userName = (String) SecurityUtils.getSubject().getPrincipal();
     User user = userService.getByName(userName);
     Role role = roleDao.getRoleById(user.getRoleId());
-    List<Integer> permissonIds = rolePermissionDao.getPermissionIds(role.getId());
-    //给资源进行授权
-    SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
-    List<Permission> permissions = permissionDao.getByUserId(permissonIds);
     Set<String> roles = new HashSet<>();
     roles.add(role.getName());
+    List<Integer> permissonIds = rolePermissionDao.getPermissionIds(role.getId());
+    //给资源进行授权
+
+    List<Permission> permissions = permissionDao.getByUserId(permissonIds);
     for (Permission permission : permissions) {
      // info.addStringPermission(permission.getPermissionUrl());
     }

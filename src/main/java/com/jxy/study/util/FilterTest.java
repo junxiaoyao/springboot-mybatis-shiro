@@ -7,6 +7,7 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Component;
 
 /**
@@ -25,7 +26,8 @@ public class FilterTest implements Filter {
   @Override
   public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
       FilterChain filterChain) throws IOException, ServletException {
-    System.out.println("i am a filter");
+    HttpServletRequest request=(HttpServletRequest) servletRequest;
+    System.out.println("请求地址："+request.getRequestURI());
     filterChain.doFilter(servletRequest, servletResponse);
   }
 

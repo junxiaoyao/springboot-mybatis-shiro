@@ -11,7 +11,7 @@
   <select id="getByRoleId" resultMap="rolePermission">
     select * from role_permission where  id = #{0}
   </select>
-  <select id="getPermissionIds" resultMap="Integer">
+  <select id="getPermissionIds" resultType="Integer">
     select t.permission_id from role_permission t where t.role_id= #{0}
 </select>
 </mapper>
