@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 public class RoleService {
   @Autowired
   RoleDao roleDao;
-  public Role getRole(Long id){
+  public Role getRole(Integer id){
     return roleDao.getRoleById(id);
   }
 }

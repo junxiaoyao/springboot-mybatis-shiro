@@ -1,0 +1,201 @@
+* {
+	text-decoration: none;
+	outline: none;
+	font-family: 微软雅黑;
+}
+
+html {
+	font-size: 13px;
+}
+
+body {
+	background-color: #03447e;
+	background-image: url("../../images/login/bg_image.png");;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	overflow-y: auto;
+}
+
+.loginBody {
+	height: 71%;
+	padding: 1.2% 16%;
+	border-top: solid 1px #e0edf6;
+	border-bottom: solid 1px #99b5cb;
+	position: relative;
+	/*z-index: -999;
+	margin-bottom:4%;*/
+}
+
+.signinpanel {
+	overflow: hidden;
+	height: 100%;
+}
+
+.signinpanel .logopanel {
+	float: none;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.signinpanel .logopanel .text-right {
+	float: left;
+	width: 70%;
+	height: 100%;
+	line-height: 36;
+}
+
+.signinpanel .logopanel .login_info {
+	float: right;
+	width: 32%;
+	height: 90%;
+	overflow: hidden;
+	display: table;
+	padding: 3% 0;
+}
+
+.signinpanel .form-control {
+	display: block;
+	margin-top: 7%;
+}
+
+.signinpanel .uname {
+	background: #fff url(../../images/login/user_ico.png) no-repeat 5% center;
+	padding: 5% 5% 5% 14%;
+	height: 14%;
+	color: #333
+}
+
+.signinpanel .pword {
+	background: #fff url(../../images/login/pwd_ico.png) no-repeat 5% center;
+	padding: 5% 5% 5% 14%;
+	color: #333;
+	height: 14%;
+}
+
+.verify_code {
+	height: 14%;
+	overflow: hidden;
+	
+}
+
+.signinpanel .btn {
+	margin-top: 6%;
+	height: 12%;
+}
+
+.signinpanel form {
+	/* 	background: rgba(60, 120, 216, .3);
+	border: 1px solid rgba(60, 120, 216, .3);
+	-moz-box-shadow: 0 2px 0 rgba(12, 12, 12, .03);
+	-webkit-box-shadow: 0 2px 0 rgba(12, 12, 12, .03);
+	box-shadow: 0 2px 0 rgba(12, 12, 12, .03); */
+	background-color: #fff;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	padding: 8%;
+	-moz-border-radius: 2px;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.otherbtn {
+	margin-top: 7%;
+	border: none;
+	overflow: auto;
+}
+
+.otherbtn .btnl {
+	float: left;
+}
+
+.otherbtn .btnr {
+	float: right;
+}
+
+.btn-success {
+	background-color: #1c84c6;
+	border-color: #1c84c6;
+	color: #FFF;
+}
+
+.btn-success:hover, .btn-success:active, .btn-success.hover {
+	background-color: #0968a5 !important;
+	border-color: #0968a5 !important;
+}
+
+.m-t-md {
+	margin-top: 20px;
+	color: #676a6c;
+}
+
+.jcaptcha {
+	float: left;
+	border: none;
+	width: 60%;
+}
+
+.jcaptichaimg {
+	float: right;
+	width: 40%;
+	height: auto;
+	cursor: pointer;
+}
+
+@media screen and (max-width:768px) {
+	.signinpanel, .signuppanel {
+		margin: 0 auto;
+		width: 420px !important;
+		padding: 20px
+	}
+	.signinpanel form {
+		margin-top: 20px
+	}
+	.signuppanel .form-control {
+		margin-bottom: 10px
+	}
+	.pull-left, .signup-footer .pull-right {
+		float: none !important;
+		text-align: center
+	}
+	.signinpanel .signin-info ul {
+		display: none
+	}
+	.jcaptcha {
+		width: 60% !important;
+	}
+}
+
+@media screen and (max-width:320px) {
+	.signinpanel, .signuppanel {
+		margin: 16% auto 0;
+		width: auto
+	}
+}
+
+.loginHead {
+	height: 11%;
+	padding: 1.2% 16%;
+	background-color: #fff;
+}
+
+.login_title {
+	text-align: center;
+	margin: 0 auto;
+	font-weight: 600;
+}
+
+.loginFooter {
+	height: 18%;
+	padding: 0.2% 16%;
+	background-color: #fff;
+	bottom: 0px;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>显示学生信息</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="UTF-8"/>
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/public/home/static/css/main.css}"/>
+    <link rel="stylesheet" th:href="@{/public/js/webUpload/webuploader.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/public/assets/layui/css/layui.css}"/>
+    <script type="text/javascript" th:src="@{/public/assets/layui/layui.js}"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+    <script th:src="@{/public/js/webUpload/webuploader.js}"></script>
+    <script th:src="@{/public/js/jquery.js}"></script>
+</head>
+<body>
+<div id="uploader" class="wu-example">
+    <!--用来存放文件信息-->
+   <!-- <div id="thelist" class="uploader-list"></div>
+    <div class="btns">
+        <div id="picker">选择文件</div>
+        <button id="ctlBtn" class="btn btn-default">开始上传</button>
+    </div>-->
+    <div>
+        <form th:action="@{/file/upload}" method="post" enctype="multipart/form-data">
+            <label class="label">请选择文件</label><input name="file" th:type="file" />
+            <input th:type="submit" th:value="Multipart方式提交文件" />
+        </form>
+        <form th:action="@{/file/uploadPa}" method="post" enctype="multipart/form-data">
+            <label class="label">请选择文件</label><input name="file" th:type="file" />
+            <input th:type="submit" th:value="Part方式提交文件" />
+        </form>
+    </div>
+</div>
+</body>
+<script>
+    $(function () {
+        var uploader = WebUploader.create({
+
+            // swf文件路径
+            swf:'/statics/js/webUpload/Uploader.swf',
+
+            // 文件接收服务端。
+            server: '/mystudy/file/upload',
+
+            // 选择文件的按钮。可选。
+            // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+            pick: '#picker',
+
+            // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
+            resize: false
+        });
+    })
+</script>
+</html>

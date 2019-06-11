@@ -8,6 +8,11 @@ server:
 spring:
   thymeleaf:
     cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    content-type: text/html
+    mode: LEGACYHTML5
+    encoding: utf-8
   profiles:
     active: dev
 #  jpa:
@@ -33,4 +38,10 @@ mybatis:
 security:
   shiro:
     urlFilterMap:
-      /test/**: anno
+      /getRoleById: authc
+      /mainPage: authc
+      /rest/*: perms
+#      /test/**: anno
+
+project:
+  mainPage: homePage

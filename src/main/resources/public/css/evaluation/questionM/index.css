@@ -1,0 +1,141 @@
+.new-info{
+	width: 100%;
+	background: rgb(222, 240, 253);
+	min-height:100px;
+	position: relative;
+	
+	padding-bottom: 30px;
+	display:flex;
+	justify-content:space-between;
+}
+.content-box{
+	width: 100%;
+	height: 100%;
+}
+.info-img{
+	width: 100%;
+	height: 90px;
+	display:flex;
+	padding: 0 10%;
+	position: absolute;
+	bottom:-67px;
+	left: 0;
+	justify-content:space-between;
+}
+.info-img>.info-img-box{
+	 width: 10px;
+   
+}
+.info-img>.info-img-box>img{
+	display: block;
+	width: 100%;
+	height: auto;
+}
+.new-info-text{
+	width: 100%;
+	white-space:normal;
+  word-break:break-all;
+ 	word-wrap:break-word; 
+ 	padding-top: 20px;
+}
+.new-info .glyphicon-pencil{
+	font-size: 18px;
+	cursor:pointer;
+}
+.question_content{
+  padding: 0 5%;
+  padding-top: 10px;
+  
+}
+.question_container{
+  background-color: rgba(111, 109, 109, 0.1);
+  border-radius: 16px;
+  font-size: 14px;
+  padding: 30px 20px;
+}
+.title1,.title2{
+  font-weight: 400;
+  font-size: 16px;
+  color: rgb(0, 108, 208);
+  font-style: normal;
+  letter-spacing: 0px;
+  line-height: 24px;
+  width: 100%;
+  text-align: center;
+}
+.question_center{
+  margin-top: 10px;
+  padding: 20px 5px;
+  border-top: 1px solid #fff;
+  color: rgb(85, 85, 85);
+
+}
+.question_item{
+  margin-bottom: 50px;
+}
+.options{
+ 
+	white-space:nowrap;
+  padding: 0;
+  
+  margin: 0;
+	margin-top: 10px;
+  
+  margin-top: 20px;
+  padding-left: 10px;
+}
+.question_head{
+  width: 100%;
+  text-align: center;
+  height: 45px;
+  line-height: 45px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 108, 208);
+  font-size: 18px;
+}
+.options_item{
+  display:flex;
+  display: -ms-flexbox;
+  align-items:center;
+  white-space:nowrap;
+  padding: 0;
+  margin-bottom: 10px;
+}
+.answer-circle{
+  text-align: center;
+  display: inline-block;
+	margin-right: 10px;
+	background-color: transparent;
+	border: 2px solid #ccc;
+	width: 20px;
+	height: 20px;
+  border-radius:50%!important;
+  line-height:16px;
+  cursor: pointer;
+}
+.answer-circle-sel{
+  border: 2px solid #5677FC;
+}
+.answer-select{
+  display: none;
+  width: 10px;
+  height: 10px;
+  border-radius:50%!important;
+  background: #000;
+  background-color: #5677FC;
+}
+.btn_box{
+  text-align: center;
+  width: 100%;
+  margin-top: 100px;
+}
+.submit{
+  background-color: rgb(0, 108, 208);
+  border-color: transparent;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 80px;
+  height: 30px;
+  
+  color:#fff;
+}

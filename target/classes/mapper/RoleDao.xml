@@ -5,14 +5,12 @@
 <mapper namespace="com.jxy.study.dao.RoleDao">
   <resultMap type="com.jxy.study.entity.Role" id="role">
     <id property="id" column="id"/>
-    <result property="roleName" column="role_name"/>
-    <result property="createTime" column="create_time"/>
-    <result property="remark" column="remark"/>
-    <result property="userId" column="user_id"/>
-    <result property="userName" column="user_name"/>
+    <result property="name" column="name"/>
+    <result property="roleLevel" column="roleLevel"/>
+    <result property="description" column="description"/>
   </resultMap>
   <select id="getRoleById" resultMap="role">
-    select * from hrole where  id = #{0}
+    select * from roles where  id = #{0}
   </select>
 
 </mapper>

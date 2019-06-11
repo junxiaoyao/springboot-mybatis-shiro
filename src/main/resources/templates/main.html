@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<title>松度电脑开票业务系统</title>
+<script th:src="@{/public/js/jquery1.9.1.js}"></script>
+	<link rel="stylesheet" type="text/css" th:href="@{/public/assets/layui/css/layui.css}"/>
+	<script type="text/javascript" th:src="@{/public/assets/layui/layui.js}"></script>
+</head>
+<body class="layui-layout-body">
+	<div class="layui-layout layui-layout-admin">
+		<div class="layui-header">
+			<div class="layui-logo">松度电脑开票业务系统</div>
+
+			<ul class="layui-nav layui-layout-right">
+				<li class="layui-nav-item" id="userLoginName">
+			</li>
+				<li class="layui-nav-item"><a href="signOut.do">退出系统</a></li>
+			</ul>
+		</div>
+
+		<div class="layui-side layui-bg-black">
+			<div class="layui-side-scroll">
+				<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+				<ul class="layui-nav layui-nav-tree" lay-filter="test" id='menu'>
+				</ul>
+			</div>
+		</div>
+
+		<div class="layui-body">
+			<!-- 内容主体区域 -->
+			<iframe src="main.html" style="width: 100%" name="mainIframe" id="ifame"></iframe>
+		</div>
+
+		<div class="layui-footer" >
+			<!-- 底部固定区域 -->
+			<p style="margin-left:45%">© 2018毕业设计 by ybl</p>
+		</div>
+	</div>
+	<script>
+	var element;
+	
+	function getLoginUser(){
+			$.ajax({
+				url : 'mystudy/getLoginUser',
+				data : {},
+				type : 'get',
+				async:false,
+				dataType : 'json',
+				success : function(r) {
+					//console.log(r.data);
+					$('#userLoginName').html(r.user.realName);
+					getMenu(r.user.roleId);
+				}
+			});
+	}
+	function createMenu(menus){
+		var fMenus=new Array();
+		var menu="";
+		var count=0;
+		for(var i=0;i<menus.length;i++){
+			if(menus[i].parentId==0){
+				fMenus[count]=menus[i];
+				count++;
+			}
+		}
+		for(var i=0;i<fMenus.length;i++){
+			var menuId=fMenus[i].menuId;
+			menu+='<li class="layui-nav-item layui-nav-itemed"><a class='+'"'+'"'+' href="javascript:;">';
+			menu+=fMenus[i].menuName+'<span class="layui-nav-more"></span>'+'</a>';
+			menu+='<dl class="layui-nav-child">';
+			for(var j=0;j<menus.length;j++){
+			if(menus[j].parentId==menuId){
+				menu+='<dd><a href='+'"'+'/'+menus[j].url+'"';
+				
+				menu+= 'target="mainIframe">'+menus[j].menuName+'</a></dd>';
+				}
+				
+			}
+			menu+='</dl></li>';	
+		}
+		$('#menu').html(menu);
+	}
+		function getMenu(roleId) {
+		
+			$.ajax({
+				url : 'getRoleMenu.do',
+				data : {'roleId': roleId},
+				type : 'post',
+				async:false,
+				dataType : 'json',
+				success : function(r) {
+					//console.log(r.data);
+					createMenu(r.data);
+				}
+			});
+		}
+			//动态设置地图窗口高度
+			function setWindows() {
+				var winWidth = -500;
+				var winHeight = -115;
+				if(document.documentElement && document.documentElement.clientHeight && document.documentElement.clientWidth) {
+					winHeight += document.documentElement.clientHeight;
+					winWidth = document.documentElement.clientWidth;
+				}
+				document.getElementById("ifame").style.height = winHeight + 'px';
+				//document.getElementById("ifame").style.width = winWidth + 'px';
+			}
+		//JavaScript代码区域
+		layui.use('element', function() {
+			setWindows();
+			getLoginUser()
+			element = layui.element;
+			element.init();
+		});
+	</script>
+</body>
+</html>

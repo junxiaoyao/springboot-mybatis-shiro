@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 @Mapper
 public interface RoleDao {
 
-  Role getRoleById(Long id);
+  Role getRoleById(Integer id);
 }

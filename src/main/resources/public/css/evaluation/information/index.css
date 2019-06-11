@@ -1,0 +1,42 @@
+ul,li{
+  list-style: none;
+}
+html,body{
+  font-family: SourceHanSansSC;
+}
+.information_box{
+  background-color: rgb(238, 238, 238);
+  height: 100%;
+  overflow-y:auto;
+  overflow-x: hidden;
+  padding: 70px 100px;
+}
+.infor_list{
+  width: 100%;
+}
+.infor_item{
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  color: rgb(102, 102, 102);
+  border-radius: 10px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  padding-right: 20px;
+}
+.infor_item>p{
+  margin: 0;
+  padding: 0 5px;
+  width: 70%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.infor_item>i{
+  color: rgb(0, 108, 208);
+  cursor: pointer;
+}

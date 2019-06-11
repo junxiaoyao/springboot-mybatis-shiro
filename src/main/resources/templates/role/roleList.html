@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>代开票</title>
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="plugins/layui/css/layui.css">
+<link rel="stylesheet"
+	href="plugins/zTree_v3/css/zTreeStyle/zTreeStyle.css">
+<script src="js/jquery1.9.1.js"></script>
+<script src="plugins/layui/layui.js"></script>
+<script src="plugins/VueJS/vue.min.js"></script>
+<script src="js/role/roleList.js"></script>
+<script src="plugins/zTree_v3/js/jquery.ztree.core.js"></script>
+<script src="plugins/zTree_v3/js/jquery.ztree.excheck.js"></script>
+</head>
+<body>
+	<div class="container m-15" id="main">
+	<fieldset class="layui-elem-field layui-field-title" >
+  <legend>角色管理</legend>
+</fieldset>
+		<div class="layui-form">
+			<div class="layui-col-md12">
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<span class="layui-form-mid">角色名</span>
+						<div class="layui-input-inline">
+							<input type="text" id="roleName" class="layui-input"
+								placeholder="用户名">
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">
+							<button class="layui-btn" type="button"
+								onclick="javasript:vm.count()">
+								<i class="layui-icon">&#xe615;</i>查询
+							</button>
+						</label>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">
+							<button class="layui-btn" type="button"
+								onclick="javascript:vm.add()">
+								<i class="layui-icon">&#xe608;</i>新增
+							</button>
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="datas" lay-filter="bar"></div>
+		<div id="pagination"></div>
+	</div>
+	<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+	<div id="addRole" style="display: none" class="layui-row">
+		<div class="layui-col-md4">
+			<form class="layui-form" action="">
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">角色名</label>
+						<div class="layui-input-inline">
+							<input type="text" name="mRoleName" id="mRoleName"
+								lay-verify="required" autocomplete="off" class="layui-input">
+						</div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">备注</label>
+						<div class="layui-input-inline">
+							<input type="text" name="mRemark" id="mRemark" autocomplete="off"
+								class="layui-input">
+						</div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">权限</label>
+					<ul id="tree" class="ztree" style="width:260px; overflow:auto;"></ul>
+				</div>
+
+			</form>
+			<div class="layui-input-block">
+				<button class="layui-btn" lay-submit="" onclick="vm.addSave()">立即提交</button>
+			</div>
+		</div>
+	</div>
+<div id="mRole" style="display: none" class="layui-row">
+	<input type="hidden" id="roleId">
+		<div class="layui-col-md4">
+			<form class="layui-form" action="">
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">角色名</label>
+						<div class="layui-input-inline">
+							<input type="text" name="RoleName" id="mroleName"
+								lay-verify="required" autocomplete="off" class="layui-input">
+						</div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">备注</label>
+						<div class="layui-input-inline">
+							<input type="text" name="mRemark" id="mremark" autocomplete="off"
+								class="layui-input">
+						</div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">权限</label>
+					<ul id="mztree" class="ztree" style="width:260px; overflow:auto;"></ul>
+				</div>
+
+			</form>
+			<div class="layui-input-block">
+				<button class="layui-btn" lay-submit="" onclick="vm.editSave()">立即提交</button>
+			</div>
+		</div>
+	</div>
+</body>
+<SCRIPT type="text/javascript">
+	
+</SCRIPT>
+</html>

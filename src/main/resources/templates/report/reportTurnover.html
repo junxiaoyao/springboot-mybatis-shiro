@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>reportTurnover.html</title>
+<meta name="keywords" content="keyword1,keyword2,keyword3">
+<meta name="description" content="this is my page">
+<meta name="content-type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="plugins/layui/css/layui.css">
+<script src="js/jquery1.9.1.js"></script>
+<script src="plugins/echarts/echarts.min.js"></script>
+<script src="plugins/VueJS/vue.min.js"></script>
+<script src="js/report/turnoverReport.js"></script>
+<script src="plugins/laydate/laydate.js"></script>
+</head>
+
+<body>
+	
+<div class="container m-15" id="main">
+				<div class="layui-inline">
+                    <span class="layui-form-label">开始时间</span>
+                    <div class="layui-input-inline">
+                       <input type="text" id="time" class="layui-input" placeholder="开始时间">
+                    </div>
+                </div>
+	 			<div class="layui-inline">
+                    <span class="layui-form-label">客户</span>
+                    <div class="layui-input-inline">
+                        <input type="text" id="customer"class="layui-input" placeholder="客户">
+                    </div>
+                </div>
+                 <div class="layui-inline">
+                    <label class="layui-form-label">
+                        <button class="layui-btn" type="button" onclick="vm.queryData()"><i class="layui-icon">&#xe615;</i>查询
+                        </button>
+                    </label>
+                </div>
+</div>
+<div id="datas" style="width: 1200px;height: 500px"></div>
+<script type="text/javascript">
+
+laydate.render({
+  elem: '#time' ,
+  type:'month',
+  range:'~',
+  min: '2000-1-1'
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+ul.dimensList {
+   border: solid 1px #f0f0f0;
+   padding: 3px 0;
+}
+li.dimsOne{
+	list-style-type:none;
+	padding: 2px;
+}
+li.hover{
+	background-color: #e2e2e2;
+}
+.dimens{
+	float: left;
+	width: auto;
+	border: none;
+}
+
+.col-sm-8 div{
+	height: 100%;
+	border: solid 1px #d4d4d4;
+	border-radius:2px;
+	overflow: hidden;
+}
+span.dimensTables{
+	margin: 3px 0;
+	float: left;
+}
+span.dimensTable{
+	padding:1px 2px;
+	background-color: #e2e2e2;
+	border-radius:2px;
+	margin: 3px 3px 1px 0;
+}

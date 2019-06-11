@@ -1,0 +1,104 @@
+.m-10 {
+    margin: 10px;
+}
+
+.m-7-5 {
+    margin: 7.5px;
+}
+
+.m-15 {
+    margin: 15px;
+}
+
+.m-20 {
+    margin: 20px;
+}
+
+.p-10 {
+    padding: 10px;
+}
+
+.p-20 {
+    padding: 20px;
+}
+
+.m-t-10 {
+    margin-top: 10px;
+}
+
+.m-r-10 {
+    margin-right: 10px;
+}
+
+.m-b-10 {
+    margin-bottom: 10px;
+}
+
+.m-l-10 {
+    margin-left: 10px;
+}
+
+.m-t-20 {
+    margin-top: 20px;
+}
+
+.m-r-20 {
+    margin-right: 20px;
+}
+
+.m-b-20 {
+    margin-bottom: 20px;
+}
+
+.m-l-20 {
+    margin-left: 20px;
+}
+
+.p-t-10 {
+    margin-top: 10px;
+}
+
+.p-r-10 {
+    margin-right: 10px;
+}
+
+.p-b-10 {
+    margin-bottom: 10px;
+}
+
+.p-l-10 {
+    margin-left: 10px;
+}
+
+.p-t-20 {
+    margin-top: 20px;
+}
+
+.p-r-20 {
+    margin-right: 20px;
+}
+
+.p-b-20 {
+    margin-bottom: 20px;
+}
+
+.p-l-20 {
+    margin-left: 20px;
+}
+
+.line {
+    border-bottom: 1px solid #dce7e3;
+}
+
+.layui-text p {
+    margin-bottom: 10px;
+    text-indent: 2em;
+}
+
+.layui-form .layui-form-item .timeHidden {
+    display: none;
+}
+
+.layui-form .layui-form-item .searchTime {
+    margin-bottom: 0;
+}

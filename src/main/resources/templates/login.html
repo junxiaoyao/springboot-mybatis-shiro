@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/layui/css/layui.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login/css/style.css}"/>
+    <script type="text/javascript" th:src="@{/assets/layui/layui.js}"></script>
+    <title>登录</title>
+</head>
+<body>
+<div id="clouds">
+    <div class="cloud x1"></div>
+    <!-- Time for multiple clouds to dance around -->
+    <div class="cloud x2"></div>
+    <div class="cloud x3"></div>
+    <div class="cloud x4"></div>
+    <div class="cloud x5"></div>
+</div>
+
+<div class="container">
+
+    <input id="error" type="hidden" th:value="${msg}"></input>
+    <div id="login">
+
+        <form method="post" th:action="@{/login}">
+
+            <fieldset class="clearfix">
+
+                <p><span class="fontawesome-user"></span><input type="text" name="name"
+                                                                onBlur="if(this.value == ''){this.value = 'name'
+}"
+                                                                onFocus="if(this.value == 'name'){this.value = ''
+}"
+                                                                required="required"/></p>
+                <!-- JS because of IE support; better: placeholder="Username" -->
+                <p><span class="fontawesome-lock"></span><input type="password" name="password"
+                                                                onBlur="if(this.value == ''){this.value = 'password'
+}"
+                                                                onFocus="if(this.value == 'password'){this.value = ''
+}"
+                                                                required="required"/></p>
+                <!-- JS because of IE support; better: placeholder="Password" -->
+
+                <p><input type="submit" value="登录"/></p>
+
+            </fieldset>
+
+        </form>
+
+        <p>没账号? <a href="#" class="blue">注册账号</a><span class="fontawesome-arrow-right"></span></p>
+
+    </div> <!-- end login -->
+
+</div>
+<script>
+    var laydate; //日期
+    var laypage; //分页
+    var layer;//弹层
+    var table; //表格
+    var carousel; //轮播
+    var upload; //上传
+    var element; //元素操作
+    var slider; //滑块
+    var $;
+    layui.use(['laydate', 'laypage', 'layer', 'table', 'carousel', 'upload', 'element', 'slider'],
+        function () {
+            laydate = layui.laydate //日期
+                , laypage = layui.laypage //分页
+                , layer = layui.layer //弹层
+                , table = layui.table //表格
+                , carousel = layui.carousel //轮播
+                , upload = layui.upload //上传
+                , element = layui.element //元素操作
+                , slider = layui.slider //滑块
+                , $ = layui.$;
+            loginError();
+        });
+
+    function loginError() {
+        var error = $('#error').val();
+        layer.msg(error);
+    }
+</script>
+</body>
+</html>

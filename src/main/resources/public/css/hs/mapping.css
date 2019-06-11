@@ -1,0 +1,64 @@
+.modal-dialog{
+	width: 1280px;
+}
+div label.deviceinfolabel{
+	width: 10%!important;
+}
+
+#selectKeywords{
+	padding: 0 10px;
+	margin: 0 10px;
+}
+
+#mappItem{
+	width: 80% !important;
+	float: right;
+	overflow :auto;
+	background-color: #FFF;
+}
+
+#mappItem .table-responsive{
+	height: 560px;
+}
+
+#mappDevice{
+	width: 20%;
+	/* height: auto; */
+	height: 650px;
+	float: left;
+	padding: 0 5px;
+	background-color: #FFF;
+}
+
+/* a.select_device{
+	color: black;
+	text-decoration:none;
+	font-size: 16px;
+	font-weight: 500;
+}
+
+a.select_device:hover{
+	color: blue;
+} 
+a.select_scene:active{
+	color: #c0c0c0;
+}
+
+.no_rad{
+	list-style:none;
+	padding: 3px;
+	border-bottom: 1px solid #ECECEC;	
+} */
+
+.nompdevice{
+	text-align: center;
+	margin-top: 50%;
+}
+
+#pageCount{
+	width: 100px;
+}
+
+#mappDevice{
+	overflow: auto;
+}

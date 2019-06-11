@@ -4,21 +4,27 @@ package com.jxy.study.dao;
 import com.jxy.study.entity.Permission;
 import java.util.List;
 import java.util.Map;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
+@Mapper
+@Repository
 public interface PermissionDao {
 
-    List<Permission> getByMap(Map<String, Object> map);
+  List<Permission> getByMap(Map<String, Object> map);
 
-    Permission getById(Integer id);
+  Permission getById(Integer id);
 
-    Integer create(Permission permission);
+  List<Permission> getByIds(List<Integer> ids);
 
-    int update(Permission permission);
+  Integer create(Permission permission);
 
-    int delete(Integer id);
+  int update(Permission permission);
 
-    List<Permission> getList();
+  int delete(Integer id);
 
-    List<Permission> getByUserId(Integer userId);
+  List<Permission> getList();
+
+  List<Permission> getByUserId(List<Integer> userId);
 
 }

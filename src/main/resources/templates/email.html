@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>显示学生信息</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="http://118.24.188.79:8080/study/statics/home/static/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="http://118.24.188.79:8080/study/statics/assets/layui/css/layui.css"/>
+    <script type="text/javascript" src="http://118.24.188.79:8080/study/statics/assets/layui/layui.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+</head>
+<body id="list-cont">
+<div class="site-nav-bg">
+    <div class="site-nav w1200">
+        <p class="sn-back-home">
+            <i class="layui-icon layui-icon-home"></i>
+            <a href="">首页</a>
+        </p>
+        <div class="sn-quick-menu">
+            <div class="login"><a href="login.html">登录</a></div>
+            <div class="login"><a href="http://118.24.188.79:8080/study/test/userInfo"><p th:text="${user.userName"></p></a></div>
+            <div class="sp-cart"><a href="shopcart.html">购物车</a><span>2</span></div>
+        </div>
+    </div>
+</div>
+<div class="content"></div>
+<div class="main-nav"></div>
+<div class="category-con"></div>
+<div class="floors"></div>
+<script>
+    layui.use(['laydate', 'laypage', 'layer', 'table', 'carousel', 'upload', 'element', 'slider'], function() {
+        var laydate = layui.laydate //日期
+            , laypage = layui.laypage //分页
+            , layer = layui.layer //弹层
+            , table = layui.table //表格
+            , carousel = layui.carousel //轮播
+            , upload = layui.upload //上传
+            , element = layui.element //元素操作
+            , slider = layui.slider //滑块
+
+        //向世界问个好
+        layer.msg('Hello World');
+
+        //监听Tab切换
+        element.on('tab(demo)', function (data) {
+            layer.tips('切换了 ' + data.index + '：' + this.innerHTML, this, {
+                tips: 1
+            });
+        });
+    });
+
+</script>
+</body>
+</html>

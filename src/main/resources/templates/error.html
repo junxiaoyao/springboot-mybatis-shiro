@@ -1,0 +1,47 @@
+<!--
+author: W3layouts
+author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>something wrong with your application</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" th:href="@{/error/css/style.css}" type="text/css" media="all"/><!-- Style-CSS -->
+</head>
+<body>
+<section class="main-agile">
+    <div class="error-agile">
+        <div class="error-center">
+            <h1>bright error page</h1>
+        </div>
+        <div class="page-agile">
+            <h2 th:text="${status}"></h2>
+            <span><span th:text="${error}"> </span> </span>
+            <span>something wrong in<span th:text="${exception}"> </span> </span>
+            <span>path:<span th:text="${path}"> </span> </span>
+            <div class="form-agile">
+                <!--<form action="#" method="get">-->
+                <!--<input type="text" name="uname" placeholder="search" required="">-->
+                <!--<input type="submit" class="button" value="">-->
+                <!--</form>-->
+            </div>
+            <div class="clear"></div>
+            <div class="social-agile">
+                <!--<ul class="icons-agile">-->
+                <!--<li><a th:href="@{/error}"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>-->
+                <!--<li><a th:href="@{/error}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>-->
+                <!--<li><a th:href="@{/error}"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>-->
+                <!--</ul>-->
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <footer>&copy;copyright jxy</footer>
+</section>
+</body>
+</html>

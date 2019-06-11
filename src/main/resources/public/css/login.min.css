@@ -1,0 +1,169 @@
+*{
+	text-decoration: none;
+    outline: none;
+    font-family: 微软雅黑;
+}
+
+ html {
+	font-size: 13px;
+}
+
+body{
+	background-color: #fff;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	overflow-y: auto
+}
+
+.signin{
+	height:80%;
+	margin-bottom:4%;
+	background-color:#e3f0f9;
+	border-top: solid 1px #e0edf6;
+	border-bottom: solid 1px #99b5cb;
+	position: relative;
+	/*z-index: -999;*/
+}
+
+.signinpanel {
+    margin: 0% 15%;
+    overflow: hidden;
+   	height: 100%;
+}
+
+.signinpanel .logopanel {
+	float: none;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.signinpanel .logopanel .text-right{
+	float: left;
+	width: 70%;
+	height: 100%;
+	line-height: 36;
+}
+.signinpanel .logopanel .text-left{
+	float: right;
+	width: 30%;
+	height: 100%;
+	overflow: hidden;
+}
+.signinpanel .logopanel .text-left div{
+	margin: 27% auto;
+}
+
+.signinpanel .signin-info ul {
+	list-style: none;
+	padding: 0;
+	margin-top: 20px;
+}
+
+.signinpanel .form-control {
+	display: block;
+	margin-top: 20px;
+}
+
+.signinpanel .uname {
+	background: #fff url(../images/user.png) no-repeat 95% center;
+	color: #333
+}
+
+.signinpanel .pword {
+	background: #fff url(../images/locked.png) no-repeat 95% center;
+	color: #333
+}
+
+.signinpanel .btn {
+	margin-top: 20px
+}
+
+.signinpanel form {
+	background: rgba(60, 120, 216, .3);
+	border: 1px solid rgba(60, 120, 216, .3);
+	-moz-box-shadow: 0 3px 0 rgba(12, 12, 12, .03);
+	-webkit-box-shadow: 0 3px 0 rgba(12, 12, 12, .03);
+	box-shadow: 0 3px 0 rgba(12, 12, 12, .03);
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	padding: 30px
+}
+
+.signup-footer {
+	border-top: solid 1px rgba(60, 120, 216, .3);
+	margin: 20px 0;
+	padding-top: 15px
+}
+
+.btn-success{
+	background-color: #1c84c6;
+    border-color: #1c84c6;
+    color: #FFF;
+}
+
+.btn-success:hover, .btn-success:active, .btn-success.hover{
+	background-color: #0968a5 !important;
+	border-color: #0968a5 !important;
+}
+
+.m-t-md{
+	margin-top:20px;
+	color:#676a6c;
+}
+.jcaptcha{
+	width: 140px;
+	float: left;
+}
+.jcaptichaimg{
+	margin: 20px 5px 10px 5px;
+	cursor: pointer;
+}
+
+@media screen and (max-width:768px) {
+	.signinpanel, .signuppanel {
+		margin: 0 auto;
+		width: 420px !important;
+		padding: 20px
+	}
+	.signinpanel form {
+		margin-top: 20px
+	}
+	.signup-footer, .signuppanel .form-control {
+		margin-bottom: 10px
+	}
+	.signup-footer .pull-left, .signup-footer .pull-right {
+		float: none !important;
+		text-align: center
+	}
+	.signinpanel .signin-info ul {
+		display: none
+	}
+	.jcaptcha{
+		width: 202px !important;
+	}
+}
+
+@media screen and (max-width:320px) {
+	.signinpanel, .signuppanel {
+		margin: 16% auto 0;
+		width: auto
+	}
+}
+
+.bodyTitle{
+	height: 70px;
+	padding: 20px 15%;
+}
+
+.loginImg, .loginTitle{
+	width:100%;
+}
