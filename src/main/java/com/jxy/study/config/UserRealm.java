@@ -55,9 +55,9 @@ public class UserRealm extends AuthorizingRealm {
     List<Integer> permissonIds = rolePermissionDao.getPermissionIds(role.getId());
     //给资源进行授权
 
-    List<Permission> permissions = permissionDao.getByUserId(permissonIds);
+    List<Permission> permissions = permissionDao.getByIds(permissonIds);
     for (Permission permission : permissions) {
-     // info.addStringPermission(permission.getPermissionUrl());
+      info.addStringPermission(permission.getPermissionUrl());
     }
     //设置角色
     info.setRoles(roles);
