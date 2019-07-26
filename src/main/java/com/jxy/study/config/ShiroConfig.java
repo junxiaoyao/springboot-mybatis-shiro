@@ -31,6 +31,7 @@ public class ShiroConfig {
     //登出
     map.put("/logout", "logout");
     //map.put("/rest/getTime","perms");
+    map.put("/rest/**","shiroFilter");
     factoryBean.setFilterChainDefinitionMap(map);
     factoryBean.setLoginUrl("/login");
     return factoryBean;
