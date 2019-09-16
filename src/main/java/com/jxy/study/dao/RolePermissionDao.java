@@ -12,4 +12,6 @@ public interface RolePermissionDao {
   List<RolePermission> getByRoleId(Integer roleId);
 
   List<Integer> getPermissionIds(Integer roleId);
+
+  List<String> getPermissionUrls(Integer roleId);
 }

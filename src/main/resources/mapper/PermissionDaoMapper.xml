@@ -19,12 +19,17 @@
     </select>
     <select id="getByIds" resultMap="permissionMap">
         SELECT * FROM permission WHERE 1=1
-        <if test="ids!=null and ids.size()>0">
-            and id in
-            <foreach collection="ids" index="index" item="item" open="(" separator="," close=")">
-                #{item}
-            </foreach>
-        </if>
+        <choose>
+          <when test="ids!=null and ids.size()>0">
+              and id in
+              <foreach collection="ids" index="index" item="item" open="(" separator="," close=")">
+                  #{item}
+              </foreach>
+          </when>
+          <otherwise>
+            and id = 0
+          </otherwise>
+        </choose>
     </select>
 
 

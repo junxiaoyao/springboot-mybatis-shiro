@@ -1,12 +1,9 @@
-package com.jxy.study.service;
+package com.jxy.study.util;
 
-import com.alibaba.druid.sql.dialect.mysql.ast.statement.MySqlStatement;
-import com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Types;
-import java.util.Calendar;
 
 /**
  * @description
