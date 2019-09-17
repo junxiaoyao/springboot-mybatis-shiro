@@ -8,11 +8,12 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class SpringUtil implements BeanFactoryPostProcessor {
+
     private static ConfigurableListableBeanFactory beanFactory;
 
-    public SpringUtil() {
-    }
+    public SpringUtil() {}
 
+    @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
         SpringUtil.beanFactory = beanFactory;
     }

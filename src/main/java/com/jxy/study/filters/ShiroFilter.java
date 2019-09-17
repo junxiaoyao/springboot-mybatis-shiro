@@ -1,4 +1,4 @@
-package com.jxy.study.util;
+package com.jxy.study.filters;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;

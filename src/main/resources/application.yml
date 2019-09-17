@@ -38,10 +38,13 @@ mybatis:
 security:
   shiro:
     urlFilterMap:
+      /logout: logout
       /getRoleById: authc
       /mainPage: authc
-      /rest/*: authc,my_perm
+      /rest/*: authc,perm
 #      /test/**: anno
 
 project:
   mainPage: homePage
+  loginUrl: /login
+  loginSuccess: /
