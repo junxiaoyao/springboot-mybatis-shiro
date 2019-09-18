@@ -15,5 +15,7 @@
   <select id="getById" resultMap="userMap">
 			select * from users where id =#{0}
 	</select>
-
+  <insert id="addUser">
+    insert into users(name,password,roleid)values (#{name},#{password},#{roleId})
+  </insert>
 </mapper>

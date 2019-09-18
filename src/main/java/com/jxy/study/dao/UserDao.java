@@ -8,7 +8,9 @@ import org.springframework.stereotype.Repository;
 @Mapper
 public interface UserDao {
 
-  User getById(Integer id);
+    User getById(Integer id);
 
-  User getByName(String name);
+    User getByName(String name);
+
+    void addUser(User u);
 }
