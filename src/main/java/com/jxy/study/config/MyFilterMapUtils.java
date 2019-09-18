@@ -1,9 +1,6 @@
 package com.jxy.study.config;
 
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import javax.servlet.Filter;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
@@ -20,8 +17,5 @@ public class MyFilterMapUtils {
 
     // 路径map
     private Map<String, String> urlFilterMap;
-
-    // 自定义过滤器map
-    public Map<String, Filter> filterMap = new HashMap<>();
 
 }

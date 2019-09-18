@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Component;
 
 /**
- * @description
+ * @description 全局filter
  * @author: jxy
  * @create: 2019-06-05 16:43
  */
