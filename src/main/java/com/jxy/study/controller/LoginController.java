@@ -50,7 +50,6 @@ public class LoginController {
 
     @RequestMapping(value = "login", method = RequestMethod.GET)
     public String login() {
-        userService.addUser(null);
         return "login";
     }
 
