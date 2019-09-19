@@ -39,6 +39,7 @@ security:
   shiro:
     urlFilterMap:
       /logout: logout
+      /login: login
       /getRoleById: authc
       /mainPage: authc
       /rest/*: authc,perm

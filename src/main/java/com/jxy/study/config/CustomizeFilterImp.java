@@ -1,5 +1,6 @@
 package com.jxy.study.config;
 
+import com.jxy.study.filters.LoginFilter;
 import com.jxy.study.filters.PermissionFilter;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,6 +26,7 @@ public class CustomizeFilterImp implements CustomizeFilterInter {
     @Override
     public Map<String, Filter> getCustomizeFilters() {
         filterMap.put("perm", new PermissionFilter());
+        filterMap.put("login", new LoginFilter());
         return filterMap;
     }
 }
