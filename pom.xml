@@ -91,6 +91,18 @@
       <artifactId>shiro-spring</artifactId>
       <version>${shiro-spring.version}</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.json.wso2/json -->
+    <dependency>
+      <groupId>org.json.wso2</groupId>
+      <artifactId>json</artifactId>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
+    <dependency>
+      <groupId>com.googlecode.json-simple</groupId>
+      <artifactId>json-simple</artifactId>
+    </dependency>
+
+
     <!--shiro相关-->
   </dependencies>
   <build>

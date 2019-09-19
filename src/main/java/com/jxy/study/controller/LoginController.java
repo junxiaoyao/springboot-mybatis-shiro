@@ -30,8 +30,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class LoginController {
 
-    @Value("${project.mainPage}")
+    @Value("${project.main_page}")
     private String mainPage;
+    @Value("${project.login_html}")
+    private String loginHtml;
 
     @Autowired
     private UserService userService;
@@ -50,13 +52,13 @@ public class LoginController {
 
     @RequestMapping(value = "login", method = RequestMethod.GET)
     public String login() {
-        return "login";
+        return loginHtml;
     }
 
     @RequestMapping(value = "logout", method = RequestMethod.GET)
     public String logout(Model model) {
         model.addAttribute("msg", "退出成功");
-        return "login";
+        return loginHtml;
     }
 
     @RequestMapping(value = "mainPage", method = RequestMethod.GET)

@@ -1,10 +1,15 @@
 package com.jxy.study.service;
 
+import com.alibaba.druid.support.json.JSONUtils;
 import com.jxy.study.dao.UserDao;
 import com.jxy.study.entity.User;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @description
@@ -34,6 +39,13 @@ public class UserService {
         user2.setPassword("2");
         user2.setRoleId(2);
         userDao.addUser(user);
-      //  userDao.addUser(u);
+        //  userDao.addUser(u);
+    }
+
+    public static void main(String[] args) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("code", 200);
+        map.put("msg", "csc");
+        System.out.println(JSONUtils.toJSONString(map));
     }
 }

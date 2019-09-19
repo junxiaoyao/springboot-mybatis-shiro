@@ -46,6 +46,7 @@ security:
 #      /test/**: anno
 
 project:
-  mainPage: homePage
+  main_page: homePage
   loginUrl: /login
   loginSuccess: /
+  login_html: loginBeifen
