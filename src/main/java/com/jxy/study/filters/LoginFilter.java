@@ -43,8 +43,9 @@ public class LoginFilter extends AccessControlFilter {
         Map<String, String[]> paramMaps = request.getParameterMap();
         String userName = String.valueOf(paramMaps.get("name")[0]);
         String password = String.valueOf(paramMaps.get("password")[0]);
+        Boolean rememberMe = new Boolean(String.valueOf(paramMaps.get("rememberMe")[0]));
         // 2.封装用户数据
-        UsernamePasswordToken token = new UsernamePasswordToken(userName, password);
+        UsernamePasswordToken token = new UsernamePasswordToken(userName, password,rememberMe);
         Map<String, Object> object = new HashMap<>();
         // 3.执行登录方法
         try {

@@ -36,13 +36,12 @@
                                                                 onFocus="if(this.value == 'password'){this.value = ''
 }"
                                                                 required="required"/></p>
-                <!-- JS because of IE support; better: placeholder="Password" -->
-
+                <input type="hidden" name="rememberMe" value="true"/>
+                </p>
                 <p align="center">
-                    <button type="button" class="layui-btn layui-btn-normal layui-btn-lg" onclick="login()" >登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
+                    <button type="button" class="layui-btn layui-btn-normal layui-btn-lg" onclick="login()">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
                     <button type="button" class="layui-btn   layui-btn-lg">注册账号</button>
                 </p>
-
             </fieldset>
         </form>
 
@@ -78,7 +77,7 @@
             url: 'login',
             type: 'post',
             data: data,
-            dataType:"json",
+            dataType: "json",
             aysnc: false,
             success: function (res) {
                 if (Number(res.code) < Number(400)) {
@@ -89,7 +88,7 @@
                 } else {
                     layer.msg("密码错误");
                 }
-            }, error:function(err){
+            }, error: function (err) {
                 layer.msg("error");
             }
 

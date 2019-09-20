@@ -40,9 +40,9 @@ security:
     urlFilterMap:
       /logout: logout
       /login: login
-      /getRoleById: authc
-      /mainPage: authc
-      /rest/*: authc,perm
+      /getRoleById: user
+      /mainPage: user
+      /rest/*: user,perm
 #      /test/**: anno
 
 project:

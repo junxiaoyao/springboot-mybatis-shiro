@@ -91,6 +91,11 @@
       <artifactId>shiro-spring</artifactId>
       <version>${shiro-spring.version}</version>
     </dependency>
+    <dependency>
+      <groupId>org.apache.shiro</groupId>
+      <artifactId>shiro-cache</artifactId>
+      <version>${shiro-spring.version}</version>
+    </dependency>
     <!-- https://mvnrepository.com/artifact/org.json.wso2/json -->
     <dependency>
       <groupId>org.json.wso2</groupId>
