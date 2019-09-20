@@ -19,27 +19,32 @@
 
 <div class="container">
 
-    <div>
+    <div id="login">
         <form id="loginForm">
             <fieldset class="clearfix">
 
-                <p>
-                    <span class="fontawesome-user"></span>
-                    <input type="text" name="name" onBlur="if(this.value == ''){this.value = 'name'}"
-                           onFocus="if(this.value == 'name'){this.value = ''}" required="required"/></p>
+                <p><span class="fontawesome-user"></span><input type="text" name="name"
+                                                                onBlur="if(this.value == ''){this.value = 'name'
+}"
+                                                                onFocus="if(this.value == 'name'){this.value = ''
+}"
+                                                                required="required"/></p>
                 <!-- JS because of IE support; better: placeholder="Username" -->
-                <p>
-                    <span class="fontawesome-lock"></span>
-                    <input type="password" name="password" onBlur="if(this.value == ''){this.value = 'password'}"
-                           onFocus="if(this.value == 'password'){this.value = ''}" required="required"/></p>
+                <p><span class="fontawesome-lock"></span><input type="password" name="password"
+                                                                onBlur="if(this.value == ''){this.value = 'password'
+}"
+                                                                onFocus="if(this.value == 'password'){this.value = ''
+}"
+                                                                required="required"/></p>
                 <!-- JS because of IE support; better: placeholder="Password" -->
 
-                <p><input type="button" onclick="login()" value="登录"/></p>
+                <p align="center">
+                    <button type="button" class="layui-btn layui-btn-normal layui-btn-lg" onclick="login()" >登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
+                    <button type="button" class="layui-btn   layui-btn-lg">注册账号</button>
+                </p>
 
             </fieldset>
         </form>
-
-        <p>没账号? <a href="#" class="blue">注册账号</a><span class="fontawesome-arrow-right"></span></p>
 
     </div> <!-- end login -->
 
