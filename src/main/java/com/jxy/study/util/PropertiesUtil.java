@@ -18,4 +18,6 @@ public class PropertiesUtil {
     private String loginUrl;
 
     private String loginSuccess;
+
+    private int cookie_time;
 }

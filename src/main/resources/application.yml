@@ -50,3 +50,4 @@ project:
   loginUrl: /login
   loginSuccess: /
   login_html: loginBeifen
+  cookie_time: 2592000

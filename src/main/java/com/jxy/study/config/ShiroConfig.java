@@ -99,7 +99,7 @@ public class ShiroConfig {
         simpleCookie.setHttpOnly(true);
         simpleCookie.setPath("/");
         //<!-- 记住我cookie生效时间30天 ,单位秒;-->
-        simpleCookie.setMaxAge(2592000);
+        simpleCookie.setMaxAge(propertiesUtil.getCookie_time());
         return simpleCookie;
     }
 
