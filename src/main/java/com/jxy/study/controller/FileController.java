@@ -37,22 +37,22 @@ public class FileController {
         FileUpload fileUpload = new FileUpload();
         fileUpload.setData(bytes);
         fileUpload.setFileName(file.getOriginalFilename().substring(0, file.getOriginalFilename().indexOf(".")));
-        fileUpload.setFileType(file.getOriginalFilename().substring(file.getOriginalFilename().indexOf(".")));
+        fileUpload.setFileType(file.getOriginalFilename());
         fileDao.uploadFile(fileUpload);
         System.out.println();
     }
 
-    @RequestMapping(value = "/downloadResourceWord", method = RequestMethod.GET)
+    @RequestMapping(value = "download", method = RequestMethod.GET)
     @ResponseBody
-    public void downloadResourceWord(HttpServletResponse response) {
+    public void download(String fileName,HttpServletResponse response) {
         OutputStream out = null;
         try {
-            FileUpload fileUpload = fileDao.getByName("新建文本文档");
+            FileUpload fileUpload = fileDao.getByName(fileName);
             if (null != fileUpload && fileUpload.getData().length > 0) {
                 response.reset();
                 out = response.getOutputStream();
                 response.addHeader("Content-Disposition", "attachment;filename=" + new String(
-                    (fileUpload.getFileName() + fileUpload.getFileType()).getBytes("gb2312"), "ISO8859_1"));
+                    (fileUpload.getFileType()).getBytes("gb2312"), "ISO8859_1"));
                 response.addHeader("Content-Length", "" + fileUpload.getData().length);
                 out.write(fileUpload.getData());
                 out.flush();
