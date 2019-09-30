@@ -42,7 +42,7 @@ security:
       /login: login
       /getRoleById: user
       /mainPage: user
-      /rest/*: user,perms[/rest/getTime],perm
+      /rest/*: user,perm
 #      /test/**: anno
 
 project:
