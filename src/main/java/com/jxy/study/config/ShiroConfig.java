@@ -1,6 +1,5 @@
 package com.jxy.study.config;
 
-
 import com.jxy.study.util.PropertiesUtil;
 
 import java.util.LinkedHashMap;
@@ -62,13 +61,14 @@ public class ShiroConfig {
     public CookieRememberMeManager rememberMeManager(Cookie cookie) {
         CookieRememberMeManager cookieRememberMeManager = new CookieRememberMeManager();
         cookieRememberMeManager.setCookie(cookie);
-        //rememberMe cookie加密的密钥 建议每个项目都不一样 默认AES算法 密钥长度(128 256 512 位)
+        // rememberMe cookie加密的密钥 建议每个项目都不一样 默认AES算法 密钥长度(128 256 512 位)
         cookieRememberMeManager.setCipherKey(Base64.decode("4AvVhmFLUs0KTA3Kprsdag=="));
         return cookieRememberMeManager;
     }
 
     @Bean
-    public DefaultWebSecurityManager securityManager(@Qualifier("userRealm") UserRealm userRealm, CookieRememberMeManager rememberMeManager) {
+    public DefaultWebSecurityManager securityManager(@Qualifier("userRealm") UserRealm userRealm,
+        CookieRememberMeManager rememberMeManager) {
         DefaultWebSecurityManager manager = new DefaultWebSecurityManager();
         manager.setRealm(userRealm);
         manager.setRememberMeManager(rememberMeManager);
@@ -83,7 +83,7 @@ public class ShiroConfig {
     @Bean
     public FormAuthenticationFilter formAuthenticationFilter() {
         FormAuthenticationFilter formAuthenticationFilter = new FormAuthenticationFilter();
-        //对应前端的checkbox的name = rememberMe
+        // 对应前端的checkbox的name = rememberMe
         formAuthenticationFilter.setRememberMeParam("rememberMe");
         return formAuthenticationFilter;
     }
@@ -91,14 +91,14 @@ public class ShiroConfig {
     @Bean
     public Cookie simpleCookie() {
         SimpleCookie simpleCookie = new SimpleCookie("rememberMe");
-//这个参数是cookie的名称，对应前端的checkbox的name = rememberMe
-        //setcookie的httponly属性如果设为true的话，会增加对xss防护的安全系数。它有以下特点：
-        //setcookie()的第七个参数
-        //设为true后，只能通过http访问，javascript无法访问
-        //防止xss读取cookie
+        // 这个参数是cookie的名称，对应前端的checkbox的name = rememberMe
+        // setcookie的httponly属性如果设为true的话，会增加对xss防护的安全系数。它有以下特点：
+        // setcookie()的第七个参数
+        // 设为true后，只能通过http访问，javascript无法访问
+        // 防止xss读取cookie
         simpleCookie.setHttpOnly(true);
         simpleCookie.setPath("/");
-        //<!-- 记住我cookie生效时间30天 ,单位秒;-->
+        // <!-- 记住我cookie生效时间30天 ,单位秒;-->
         simpleCookie.setMaxAge(propertiesUtil.getCookie_time());
         return simpleCookie;
     }
