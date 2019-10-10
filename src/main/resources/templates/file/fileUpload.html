@@ -1,57 +1,131 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>显示学生信息</title>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta charset="UTF-8"/>
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/public/home/static/css/main.css}"/>
-    <link rel="stylesheet" th:href="@{/public/js/webUpload/webuploader.css}" />
-    <link rel="stylesheet" type="text/css" th:href="@{/public/assets/layui/css/layui.css}"/>
-    <script type="text/javascript" th:src="@{/public/assets/layui/layui.js}"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
-    <script th:src="@{/public/js/webUpload/webuploader.js}"></script>
-    <script th:src="@{/public/js/jquery.js}"></script>
+  <title>显示学生信息</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta charset="UTF-8"/>
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/assets/layui/css/layui.css}"/>
+  <link th:href="@{/css/back/main.css}" rel="stylesheet" type="text/css"/>
+  <script type="text/javascript" th:src="@{/js/jquery1.9.1.js}"></script>
+  <script type="text/javascript" th:src="@{/js/fun.base.js}"></script>
+  <script type="text/javascript" th:src="@{/js/script.js}"></script>
+  <script th:src="@{/assets/layui/layui.js}"></script>
+  <script th:src="@{/assets/plugins/md5.js}"></script>
 </head>
 <body>
 <div id="uploader" class="wu-example">
-    <!--用来存放文件信息-->
-   <!-- <div id="thelist" class="uploader-list"></div>
-    <div class="btns">
-        <div id="picker">选择文件</div>
-        <button id="ctlBtn" class="btn btn-default">开始上传</button>
-    </div>-->
-    <div>
-        <form th:action="@{/file/upload}" method="post" enctype="multipart/form-data">
-            <label class="label">请选择文件</label><input name="file" th:type="file" />
-            <input th:type="submit" th:value="Multipart方式提交文件" />
-        </form>
-        <form th:action="@{/file/uploadPa}" method="post" enctype="multipart/form-data">
-            <label class="label">请选择文件</label><input name="file" th:type="file" />
-            <input th:type="submit" th:value="Part方式提交文件" />
-        </form>
-    </div>
+  <!--用来存放文件信息-->
+  <!-- <div id="thelist" class="uploader-list"></div>
+   <div class="btns">
+       <div id="picker">选择文件</div>
+       <button id="ctlBtn" class="btn btn-default">开始上传</button>
+   </div>-->
+  <div>
+    <form th:action="@{/file/upload}" method="post" enctype="multipart/form-data">
+      <label class="label">请选择文件</label><input name="file" th:type="file"/>
+      <input th:type="submit" th:value="Multipart方式提交文件"/>
+    </form>
+    <form th:action="@{/file/uploadPa}" method="post" enctype="multipart/form-data">
+      <label class="label">请选择文件</label><input name="file" th:type="file"/>
+      <input th:type="submit" th:value="Part方式提交文件"/>
+    </form>
+  </div>
+  <div>
+    <button onclick="sendXMLHttpRequest()">点击发起XMLHttpRequest</button>
+  </div>
+  <div>
+    <input id="fileName" value=""/>
+    <button onclick="download()">下载文件</button>
+    <button onclick="download2()">下载文件2</button>
+  </div>
+  <div id="myDiv">
+
+  </div>
+  <div id="imgC">
+
+  </div>
 </div>
 </body>
 <script>
-    $(function () {
-        var uploader = WebUploader.create({
+  function download() {
+    var xmlhttp;
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+      xmlhttp = new XMLHttpRequest();
+    } else {// code for IE6, IE5
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function () {
+      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        //  document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
+      }
+      if (xmlhttp.readyState === 2) {
+        xmlhttp.responseType = "blob";
+        // console.log(xmlhttp.responseType);
+        // debugger;
+      }
+    }
 
-            // swf文件路径
-            swf:'/statics/js/webUpload/Uploader.swf',
+    xmlhttp.open("GET", "/file/download?fileName=sss", true);
+    //xmlhttp.responseType = "blob";
+    xmlhttp.onload = function () {
+      if (this.status == 200) {
+        var blob = this.response;
+        var img = document.createElement("img");
+        img.onload = function (e) {
+          window.URL.revokeObjectURL(img.src);
+        };
+        img.src = window.URL.createObjectURL(blob);
+        $("#imgC").html(img);
+      }
+    }
+    xmlhttp.send();
+  }
+  function download2() {
+    var xmlhttp;
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+      xmlhttp = new XMLHttpRequest();
+    } else {// code for IE6, IE5
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function () {
+      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+          document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
+      }
 
-            // 文件接收服务端。
-            server: '/mystudy/file/upload',
+    }
 
-            // 选择文件的按钮。可选。
-            // 内部根据当前运行是创建，可能是input元素，也可能是flash.
-            pick: '#picker',
-
-            // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
-            resize: false
-        });
-    })
+    xmlhttp.open("GET", "/file/download?fileName=sss", true);
+    //xmlhttp.responseType = "blob";
+    xmlhttp.onload = function () {
+      if (this.status == 200) {
+        var blob = this.response;
+        var img = document.createElement("img");
+        img.onload = function (e) {
+          window.URL.revokeObjectURL(img.src);
+        };
+        img.src = window.URL.createObjectURL(blob);
+        $("#imgC").html(img);
+      }
+    }
+    xmlhttp.send();
+  }
+  function sendXMLHttpRequest() {
+    var xmlhttp;
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+      xmlhttp = new XMLHttpRequest();
+    } else {// code for IE6, IE5
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function () {
+      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
+      }
+    }
+    xmlhttp.open("GET", "/ajax/getTime", true);
+    xmlhttp.setRequestHeader("token", "123213423434");
+    xmlhttp.send();
+  }
 </script>
 </html>

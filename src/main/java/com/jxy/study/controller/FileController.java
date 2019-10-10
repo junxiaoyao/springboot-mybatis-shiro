@@ -1,9 +1,12 @@
 package com.jxy.study.controller;
 
+import com.alibaba.druid.support.json.JSONUtils;
 import com.jxy.study.dao.FileDao;
 import com.jxy.study.entity.FileUpload;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.HashMap;
+import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,17 +45,28 @@ public class FileController {
         System.out.println();
     }
 
+    @RequestMapping(value = "download2", method = RequestMethod.GET)
+    @ResponseBody
+    public Object download2(String fileName, HttpServletResponse response) {
+
+        FileUpload fileUpload = fileDao.getByName(fileName);
+        Map<String, Object> map = new HashMap<>();
+        map.put("code", 200);
+        map.put("data", fileUpload.getData());
+        return JSONUtils.toJSONString(map);
+    }
+
     @RequestMapping(value = "download", method = RequestMethod.GET)
     @ResponseBody
-    public void download(String fileName,HttpServletResponse response) {
+    public void download(String fileName, HttpServletResponse response) {
         OutputStream out = null;
         try {
             FileUpload fileUpload = fileDao.getByName(fileName);
             if (null != fileUpload && fileUpload.getData().length > 0) {
                 response.reset();
                 out = response.getOutputStream();
-                response.addHeader("Content-Disposition", "attachment;filename=" + new String(
-                    (fileUpload.getFileType()).getBytes("gb2312"), "ISO8859_1"));
+                response.addHeader("Content-Disposition",
+                    "attachment;filename=" + new String((fileUpload.getFileType()).getBytes("gb2312"), "ISO8859_1"));
                 response.addHeader("Content-Length", "" + fileUpload.getData().length);
                 out.write(fileUpload.getData());
                 out.flush();
