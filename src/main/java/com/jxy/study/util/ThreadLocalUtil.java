@@ -5,9 +5,9 @@ package com.jxy.study.util;
  * @author: jxy
  * @create: 2019-10-10 15:39
  */
-public class ThreadLoaclUtil {
+public class ThreadLocalUtil {
 
-    public final static ThreadLocal<String> threadLocal = new ThreadLocal() {
+    private final static ThreadLocal<String> threadLocal = new ThreadLocal() {
 
         @Override
         protected Object initialValue() {

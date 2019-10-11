@@ -3,7 +3,7 @@ package com.jxy.study.controller;
 import com.alibaba.druid.support.json.JSONUtils;
 import com.jxy.study.dao.FileDao;
 import com.jxy.study.entity.FileUpload;
-import com.jxy.study.util.ThreadLoaclUtil;
+import com.jxy.study.util.ThreadLocalUtil;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.HashMap;
@@ -28,7 +28,7 @@ public class FileController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String upload() {
-        System.out.println("controller:"+ ThreadLoaclUtil.getValue());
+        System.out.println("controller:"+ ThreadLocalUtil.getValue());
         return "file/fileUpload";
     }
 

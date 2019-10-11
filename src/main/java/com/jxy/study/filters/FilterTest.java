@@ -1,6 +1,6 @@
 package com.jxy.study.filters;
 
-import com.jxy.study.util.ThreadLoaclUtil;
+import com.jxy.study.util.ThreadLocalUtil;
 import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -30,7 +30,7 @@ public class FilterTest implements Filter {
         throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpSession session = request.getSession();
-        ThreadLoaclUtil.addValue(session.getId());
+        ThreadLocalUtil.addValue(session.getId());
         System.out.println("sessionId:" + session.getId());
         System.out.println("请求地址：" + request.getRequestURI());
         filterChain.doFilter(servletRequest, servletResponse);
