@@ -1,10 +1,15 @@
 package com.jxy.study.config;
 
+//import com.jxy.study.filters.JwtFilter;
 import com.jxy.study.filters.LoginFilter;
 import com.jxy.study.filters.PermissionFilter;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.Filter;
+
+import com.jxy.study.filters.StatelessAuthcFilter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.stereotype.Component;
 
 /**
@@ -14,7 +19,8 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class CustomizeFilterImp implements CustomizeFilterInter {
-
+    @Autowired
+    private ConfigurableListableBeanFactory beanFactory;
     Map<String, Filter> filterMap = new HashMap<>();
 
     /*
@@ -27,6 +33,12 @@ public class CustomizeFilterImp implements CustomizeFilterInter {
     public Map<String, Filter> getCustomizeFilters() {
         filterMap.put("perm", new PermissionFilter());
         filterMap.put("login", new LoginFilter());
+        StatelessAuthcFilter filter=new StatelessAuthcFilter();
+        beanFactory.autowireBean(filter);
+        filterMap.put("jwt", filter);
+//        JwtFilter jwtFilter=new JwtFilter();
+//        beanFactory.autowireBean(jwtFilter);
+//        filterMap.put("jwt", jwtFilter);
         return filterMap;
     }
 }

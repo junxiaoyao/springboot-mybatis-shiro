@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8081
 #  ssl:
 #    key-store: classpath:config/baotian.club.jks
 #    key-store-password: BAOtiandi789
@@ -42,7 +42,7 @@ security:
       /login: login
       /getRoleById: user
       /mainPage: user
-      /rest/*: user,perm
+      /rest/*: jwt,user,perm
 #      /test/**: anno
 
 project:

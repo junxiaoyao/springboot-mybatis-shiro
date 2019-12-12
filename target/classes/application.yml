@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8081
 #  ssl:
 #    key-store: classpath:config/baotian.club.jks
 #    key-store-password: BAOtiandi789
@@ -40,9 +40,9 @@ security:
     urlFilterMap:
       /logout: logout
       /login: login
-      /getRoleById: authc
-      /mainPage: authc
-      /rest/*: authc,perm
+      /getRoleById: user
+      /mainPage: user
+      /rest/*: jwt,user,perm
 #      /test/**: anno
 
 project:
@@ -50,3 +50,4 @@ project:
   loginUrl: /login
   loginSuccess: /
   login_html: loginBeifen
+  cookie_time: 2592000
