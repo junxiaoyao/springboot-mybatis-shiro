@@ -9,7 +9,7 @@
   <version>1.0-SNAPSHOT</version>
   <properties>
     <druidVersion>1.0.16</druidVersion>
-    <mysqlDriverVersion>8.0.13</mysqlDriverVersion>
+    <mysqlDriverVersion>8.0.16</mysqlDriverVersion>
     <lombok.version>1.18.6</lombok.version>
     <java.version>1.8</java.version>
     <shiro-spring.version>1.4.0</shiro-spring.version>
